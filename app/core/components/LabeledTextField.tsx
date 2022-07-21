@@ -1,7 +1,10 @@
-import { forwardRef, PropsWithoutRef, ComponentPropsWithoutRef } from "react"
+import { ComponentPropsWithoutRef, forwardRef, PropsWithoutRef } from "react"
 import { useFormContext } from "react-hook-form"
 
-export interface LabeledTextFieldProps extends PropsWithoutRef<JSX.IntrinsicElements["input"]> {
+import { FormControl, FormLabel } from "@chakra-ui/form-control"
+import { Input } from "@chakra-ui/input"
+
+export interface LabeledTextFieldProps extends ComponentPropsWithoutRef<typeof Input> {
   /** Field name. */
   name: string
   /** Field label. */
@@ -10,48 +13,29 @@ export interface LabeledTextFieldProps extends PropsWithoutRef<JSX.IntrinsicElem
   type?: "text" | "password" | "email" | "number"
   outerProps?: PropsWithoutRef<JSX.IntrinsicElements["div"]>
   labelProps?: ComponentPropsWithoutRef<"label">
+  isLoginOrSignup?: boolean
 }
 
 export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldProps>(
-  ({ label, outerProps, labelProps, name, ...props }, ref) => {
+  ({ label, outerProps, labelProps, name, isLoginOrSignup, ...props }, ref) => {
     const {
       register,
       formState: { isSubmitting, errors },
     } = useFormContext()
     const error = Array.isArray(errors[name])
-      ? errors[name].join(", ")
-      : errors[name]?.message || errors[name]
 
     return (
-      <div {...outerProps}>
-        <label {...labelProps}>
+      <FormControl {...outerProps} width={isLoginOrSignup ? "25vw" : ""}>
+        <FormLabel {...labelProps}>
           {label}
-          <input disabled={isSubmitting} {...register(name)} {...props} />
-        </label>
-
+          <Input disabled={isSubmitting} {...register(name)} {...props} />
+        </FormLabel>
         {error && (
           <div role="alert" style={{ color: "red" }}>
             {error}
           </div>
         )}
-
-        <style jsx>{`
-          label {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            font-size: 1rem;
-          }
-          input {
-            font-size: 1rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 3px;
-            border: 1px solid purple;
-            appearance: none;
-            margin-top: 0.5rem;
-          }
-        `}</style>
-      </div>
+      </FormControl>
     )
   }
 )
