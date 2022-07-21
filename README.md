@@ -6,7 +6,19 @@ This is a [Blitz.js](https://github.com/blitz-js/blitz) app.
 
 ## Getting Started
 
-Run your app in the development mode.
+- Clone the Repo using this lil button over here
+
+<img width="902" alt="Screenshot 2022-07-21 at 13 04 03" src="https://user-images.githubusercontent.com/68223905/180199281-e9df1aea-33af-4b27-8461-855d55623e84.png">
+
+- Using the command line interface "cd" into the BlitzApp file within the file you cloned the repo into
+
+- Install all the dependencies 
+
+```
+npm i
+```
+
+- Run your app in the development mode.
 
 ```
 blitz dev
@@ -33,7 +45,7 @@ DATABASE_URL=postgresql://<YOUR_DB_USERNAME>@localhost:5432/BlitzApp_test
 Runs your tests using Jest.
 
 ```
-yarn test
+npm run test
 ```
 
 Blitz comes with a test setup using [Jest](https://jestjs.io/) and [react-testing-library](https://testing-library.com/).
