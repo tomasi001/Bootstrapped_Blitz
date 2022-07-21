@@ -1,6 +1,6 @@
 ## WHY?
 
-- This repo exists to attempt to start new Blitz Projects with chakra-ui and ts straight from the get go 
+- This repo exists to attempt to start new Blitz Projects with Chakra-UI and TypeScript straight from the get go 
 - I hope it helps
 - Please feel free to raise issues and to contribute
 - One Love
