@@ -1,3 +1,11 @@
+## WHY?
+
+- This repo exists to attempt to start new Blitz Projects with chakra-ui and ts straight from the get go 
+- I hope it helps
+- Please feel free to raise issues and to contribute
+- One Love
+
+
 [![Blitz.js](https://raw.githubusercontent.com/blitz-js/art/master/github-cover-photo.png)](https://blitzjs.com)
 
 This is a [Blitz.js](https://github.com/blitz-js/blitz) app.
@@ -10,7 +18,12 @@ This is a [Blitz.js](https://github.com/blitz-js/blitz) app.
 
 <img width="902" alt="Screenshot 2022-07-21 at 13 04 03" src="https://user-images.githubusercontent.com/68223905/180199281-e9df1aea-33af-4b27-8461-855d55623e84.png">
 
-- Using the command line interface "cd" into the BlitzApp file within the file you cloned the repo into
+- Using the command line interface navigate to the cloned repo
+
+```
+"cd" ~/Bootstrapped_Blitz 
+```
+
 
 - Install all the dependencies 
 
@@ -25,6 +38,12 @@ blitz dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Features
+
+- this app comes with authentication installed
+
+- you can signup and login staight off the bat
 
 ## Environment Variables
 
