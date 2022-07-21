@@ -1,24 +1,31 @@
+import { ChakraProvider } from "@chakra-ui/react"
+import LoginForm from "app/auth/components/LoginForm"
+import theme from "app/core/theme/theme"
 import {
   AppProps,
-  ErrorBoundary,
-  ErrorComponent,
   AuthenticationError,
   AuthorizationError,
+  ErrorBoundary,
+  ErrorComponent,
   ErrorFallbackProps,
   useQueryErrorResetBoundary,
 } from "blitz"
-import LoginForm from "app/auth/components/LoginForm"
+import { RecoilRoot } from "recoil"
 
 export default function App({ Component, pageProps }: AppProps) {
   const getLayout = Component.getLayout || ((page) => page)
 
   return (
-    <ErrorBoundary
-      FallbackComponent={RootErrorFallback}
-      onReset={useQueryErrorResetBoundary().reset}
-    >
-      {getLayout(<Component {...pageProps} />)}
-    </ErrorBoundary>
+    <ChakraProvider theme={theme}>
+      <RecoilRoot>
+        <ErrorBoundary
+          FallbackComponent={RootErrorFallback}
+          onReset={useQueryErrorResetBoundary().reset}
+        >
+          {getLayout(<Component {...pageProps} />)}
+        </ErrorBoundary>
+      </RecoilRoot>
+    </ChakraProvider>
   )
 }
 
